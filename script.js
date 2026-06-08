@@ -58,17 +58,51 @@ function handleFormSubmit(event) {
     const service = document.getElementById('form-service').value;
     const details = document.getElementById('form-details').value;
     
-    // Formatear mensaje para WhatsApp
-    const message = `Hola NÓRDICO, deseo solicitar un presupuesto.%0A%0A` +
-                    `*Nombre:* ${name}%0A` +
-                    `*Teléfono:* ${phone}%0A` +
-                    `*Servicio:* ${service}%0A` +
-                    `*Detalles:* ${details}`;
+    const submitButton = event.target.querySelector('.btn-submit');
+    const originalText = submitButton.innerText;
     
-    const whatsappUrl = `https://wa.me/584120279485?text=${message}`;
-    
-    // Abrir WhatsApp en pestaña nueva
-    window.open(whatsappUrl, '_blank');
+    submitButton.innerText = "Enviando...";
+    submitButton.disabled = true;
+
+    // Estructura de datos para enviar a FormSubmit.co
+    const formData = {
+        Nombre: name,
+        Telefono: phone,
+        Servicio: service,
+        Detalles: details,
+        _subject: "Nueva Solicitud de Presupuesto - NÓRDICO"
+    };
+
+    fetch("https://formsubmit.co/ajax/russian1307@gmail.com", {
+        method: "POST",
+        headers: { 
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        submitButton.innerText = "¡Enviado con Éxito!";
+        submitButton.style.backgroundColor = "#25d366"; // Tono verde éxito
+        submitButton.style.color = "#ffffff";
+        event.target.reset();
+        alert("¡Solicitud enviada con éxito! La información ha sido remitida a russian1307@gmail.com. Nos comunicaremos contigo pronto.");
+        
+        // Restaurar botón después de 4 segundos
+        setTimeout(() => {
+            submitButton.innerText = originalText;
+            submitButton.style.backgroundColor = "";
+            submitButton.style.color = "";
+            submitButton.disabled = false;
+        }, 4000);
+    })
+    .catch(error => {
+        console.error("Error al enviar el formulario:", error);
+        submitButton.innerText = "Error al enviar";
+        submitButton.disabled = false;
+        alert("Lo sentimos, ocurrió un error al procesar tu solicitud. Por favor intenta de nuevo o comunícate vía WhatsApp.");
+    });
 }
 
 /* ==========================================================================
