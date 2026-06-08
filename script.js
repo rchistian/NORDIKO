@@ -320,3 +320,10 @@ function resetChatState() {
         { text: 'Llamar ahora', type: 'link', href: 'tel:+584120279485', class: 'call-btn' }
     ]);
 }
+
+// Exponer funciones necesarias al ámbito global para manejadores inline de HTML (necesario en empaquetado de Vite/Vercel)
+window.switchTab = switchTab;
+window.handleFormSubmit = handleFormSubmit;
+window.handleChatSubmit = handleChatSubmit;
+window.botSelectOption = botSelectOption;
+window.resetChatState = resetChatState;
