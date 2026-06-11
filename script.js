@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NÓRDICO - LÓGICA DE INTERACTIVIDAD, FORMULARIOS Y CHATBOT
+   NORDIKO - LÓGICA DE INTERACTIVIDAD, FORMULARIOS Y CHATBOT
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -70,7 +70,7 @@ function handleFormSubmit(event) {
         Telefono: phone,
         Servicio: service,
         Detalles: details,
-        _subject: "Nueva Solicitud de Presupuesto - NÓRDICO"
+        _subject: "Nueva Solicitud de Presupuesto - NORDIKO"
     };
 
     fetch("https://formsubmit.co/ajax/nordikorussian@gmail.com", {
@@ -109,9 +109,9 @@ function handleFormSubmit(event) {
    CHATBOT INTELIGENTE FLOTANTE (ESTADO Y DIÁLOGO)
    ========================================================================== */
 
-// Base de datos local de conocimiento real de NÓRDICO
+// Base de datos local de conocimiento real de NORDIKO
 const NORDICO_INFO = {
-    empresa: "NÓRDICO",
+    empresa: "NORDIKO",
     gerente: "Alejandro Enmanuel Russian Sole",
     telefono: "+58 412-0279485",
     ubicacion: "San Félix, Estado Bolívar, Venezuela",
@@ -285,11 +285,11 @@ function processChatbotLogic(userInput) {
             break;
             
         default:
-            // Responder basándose en palabras clave de la base de datos de NÓRDICO
+            // Responder basándose en palabras clave de la base de datos de NORDIKO
             const inputLower = userInput.toLowerCase();
             
             if (inputLower.includes('mantenimiento') || inputLower.includes('lavar') || inputLower.includes('limpiar')) {
-                appendChatMessage('bot', `En NÓRDICO ofrecemos mantenimiento preventivo de aires split, ventana y piso-techo, incluyendo lavado a presión, chequeo eléctrico y preventivo. ¿Deseas solicitar este servicio?`);
+                appendChatMessage('bot', `En NORDIKO ofrecemos mantenimiento preventivo de aires split, ventana y piso-techo, incluyendo lavado a presión, chequeo eléctrico y preventivo. ¿Deseas solicitar este servicio?`);
                 appendQuickReplies([
                     { text: 'Solicitar Mantenimiento Preventivo', type: 'btn', action: () => botSelectOption('Mantenimiento preventivo') },
                     { text: 'Menú principal', type: 'btn', action: resetChatState }
@@ -303,7 +303,7 @@ function processChatbotLogic(userInput) {
                 ]);
             }
             else if (inputLower.includes('gerente') || inputLower.includes('director') || inputLower.includes('alejandro') || inputLower.includes('russian')) {
-                appendChatMessage('bot', `El Gerente General de NÓRDICO es Alejandro Enmanuel Russian Sole. Puedes coordinar directamente con él haciendo una llamada o escribiendo a WhatsApp.`);
+                appendChatMessage('bot', `El Gerente General de NORDIKO es Alejandro Enmanuel Russian Sole. Puedes coordinar directamente con él haciendo una llamada o escribiendo a WhatsApp.`);
                 appendQuickReplies([
                     { text: 'WhatsApp Directo', type: 'link', href: 'https://wa.me/584120279485', target: '_blank', class: 'wa-btn' },
                     { text: 'Llamar ahora', type: 'link', href: 'tel:+584120279485', class: 'call-btn' }
@@ -325,7 +325,7 @@ function processChatbotLogic(userInput) {
             }
             else {
                 // Fallback seguro
-                appendChatMessage('bot', `Disculpa, como asistente virtual solo puedo responder información sobre servicios autorizados de refrigeración y climatización de NÓRDICO en San Félix, Bolívar. %0A%0ATe sugiero pulsar uno de los siguientes botones para una atención inmediata personalizada con un asesor humano:`);
+                appendChatMessage('bot', `Disculpa, como asistente virtual solo puedo responder información sobre servicios autorizados de refrigeración y climatización de NORDIKO en San Félix, Bolívar. %0A%0ATe sugiero pulsar uno de los siguientes botones para una atención inmediata personalizada con un asesor humano:`);
                 appendQuickReplies([
                     { text: 'Hablar por WhatsApp', type: 'link', href: 'https://wa.me/584120279485', target: '_blank', class: 'wa-btn' },
                     { text: 'Llamar a Alejandro Russian', type: 'link', href: 'tel:+584120279485', class: 'call-btn' },
@@ -342,7 +342,7 @@ function resetChatState() {
         data: { service: '', name: '', phone: '', location: '' }
     };
     
-    appendChatMessage('bot', `Hola, bienvenido a NÓRDICO. Soy el asistente virtual y puedo ayudarte con mantenimiento, reparación, instalación de aires acondicionados, refrigeración y reparación de neveras. ¿Qué servicio necesitas?`);
+    appendChatMessage('bot', `Hola, bienvenido a NORDIKO. Soy el asistente virtual y puedo ayudarte con mantenimiento, reparación, instalación de aires acondicionados, refrigeración y reparación de neveras. ¿Qué servicio necesitas?`);
     
     appendQuickReplies([
         { text: 'Mantenimiento preventivo', type: 'btn', action: () => botSelectOption('Mantenimiento preventivo') },
