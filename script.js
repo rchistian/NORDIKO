@@ -55,6 +55,7 @@ function handleFormSubmit(event) {
     
     const name = document.getElementById('form-name').value;
     const phone = document.getElementById('form-phone').value;
+    const email = document.getElementById('form-email').value;
     const service = document.getElementById('form-service').value;
     const details = document.getElementById('form-details').value;
     
@@ -68,8 +69,10 @@ function handleFormSubmit(event) {
     const formData = {
         Nombre: name,
         Telefono: phone,
+        Email: email,
         Servicio: service,
         Detalles: details,
+        _replyto: email,
         _subject: "Nueva Solicitud de Presupuesto - NORDIKO"
     };
 
