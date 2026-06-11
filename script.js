@@ -271,8 +271,30 @@ function processChatbotLogic(userInput) {
                             `• Teléfono: ${chatState.data.phone}%0A` +
                             `• Ubicación: ${chatState.data.location}`;
             
-            const waUrl = `https://wa.me/584120279485?text=Hola%20NÓRDICO,%20aquí%20tengo%20los%20datos%20de%20mi%20solicitud%20generados%20por%20el%20asistente:%0A%0A${summary}`;
+            const waUrl = `https://wa.me/584120279485?text=Hola%20NORDIKO,%20aquí%20tengo%20los%20datos%20de%20mi%20solicitud%20generados%20por%20el%20asistente:%0A%0A${summary}`;
             
+            // Enviar datos recopilados por el chatbot al correo en segundo plano
+            const chatbotLeadData = {
+                Asunto: "Nueva Solicitud desde Chatbot - NORDIKO",
+                Servicio: chatState.data.service,
+                Cliente: chatState.data.name,
+                Telefono: chatState.data.phone,
+                Ubicacion: chatState.data.location,
+                _subject: "Nuevo Lead de Asistente Virtual - NORDIKO"
+            };
+
+            fetch("https://formsubmit.co/ajax/nordikorussian@gmail.com", {
+                method: "POST",
+                headers: { 
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(chatbotLeadData)
+            })
+            .then(res => res.json())
+            .then(data => console.log("Datos de conversación del chatbot enviados al correo con éxito"))
+            .catch(err => console.error("Error al enviar datos del chatbot al correo:", err));
+
             appendChatMessage('bot', `¡Perfecto! He recopilado todos tus datos para agendar el servicio.\n\n` +
                                      `• **Servicio:** ${chatState.data.service}\n` +
                                      `• **Cliente:** ${chatState.data.name}\n` +
