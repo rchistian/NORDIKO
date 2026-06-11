@@ -220,7 +220,7 @@ function botSelectOption(optionText) {
     chatState.data.service = optionText;
     
     setTimeout(() => {
-        appendChatMessage('bot', `Entendido. Registraremos tu caso para *${optionText}*.%0A%0APara coordinar la visita técnica, por favor indícanos tu **Nombre y Apellido**:`);
+        appendChatMessage('bot', `Entendido. Registraremos tu caso para *${optionText}*.\n\nPara coordinar la visita técnica, por favor indícanos tu **Nombre y Apellido**:`);
         // Remover respuestas rápidas para dejar escribir al usuario
         const replies = document.getElementById('chatbot-replies-container');
         if (replies) replies.remove();
@@ -273,11 +273,11 @@ function processChatbotLogic(userInput) {
             
             const waUrl = `https://wa.me/584120279485?text=Hola%20NÓRDICO,%20aquí%20tengo%20los%20datos%20de%20mi%20solicitud%20generados%20por%20el%20asistente:%0A%0A${summary}`;
             
-            appendChatMessage('bot', `¡Perfecto! He recopilado todos tus datos para agendar el servicio.%0A%0A` +
-                                     `• **Servicio:** ${chatState.data.service}%0A` +
-                                     `• **Cliente:** ${chatState.data.name}%0A` +
-                                     `• **Teléfono:** ${chatState.data.phone}%0A` +
-                                     `• **Ubicación:** ${chatState.data.location}%0A%0A` +
+            appendChatMessage('bot', `¡Perfecto! He recopilado todos tus datos para agendar el servicio.\n\n` +
+                                     `• **Servicio:** ${chatState.data.service}\n` +
+                                     `• **Cliente:** ${chatState.data.name}\n` +
+                                     `• **Teléfono:** ${chatState.data.phone}\n` +
+                                     `• **Ubicación:** ${chatState.data.location}\n\n` +
                                      `Para formalizar la visita inmediatamente, haz clic en uno de los siguientes botones para enviarlo al WhatsApp de nuestro Gerente Alejandro Russian o llamarlo directamente:`);
             
             appendQuickReplies([
@@ -328,7 +328,7 @@ function processChatbotLogic(userInput) {
             }
             else {
                 // Fallback seguro
-                appendChatMessage('bot', `Disculpa, como asistente virtual solo puedo responder información sobre servicios autorizados de refrigeración y climatización de NORDIKO en San Félix, Bolívar. %0A%0ATe sugiero pulsar uno de los siguientes botones para una atención inmediata personalizada con un asesor humano:`);
+                appendChatMessage('bot', `Disculpa, como asistente virtual solo puedo responder información sobre servicios autorizados de refrigeración y climatización de NORDIKO en San Félix, Bolívar. \n\nTe sugiero pulsar uno de los siguientes botones para una atención inmediata personalizada con un asesor humano:`);
                 appendQuickReplies([
                     { text: 'Hablar por WhatsApp', type: 'link', href: 'https://wa.me/584120279485', target: '_blank', class: 'wa-btn' },
                     { text: 'Llamar a Alejandro Russian', type: 'link', href: 'tel:+584120279485', class: 'call-btn' },
