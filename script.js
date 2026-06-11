@@ -73,7 +73,7 @@ function handleFormSubmit(event) {
         _subject: "Nueva Solicitud de Presupuesto - NÓRDICO"
     };
 
-    fetch("https://formsubmit.co/ajax/russian1307@gmail.com", {
+    fetch("https://formsubmit.co/ajax/nordikorussian@gmail.com", {
         method: "POST",
         headers: { 
             "Content-Type": "application/json",
@@ -87,7 +87,7 @@ function handleFormSubmit(event) {
         submitButton.style.backgroundColor = "#25d366"; // Tono verde éxito
         submitButton.style.color = "#ffffff";
         event.target.reset();
-        alert("¡Solicitud enviada con éxito! La información ha sido remitida a russian1307@gmail.com. Nos comunicaremos contigo pronto.");
+        alert("¡Solicitud enviada con éxito! La información ha sido remitida a nordikorussian@gmail.com. Nos comunicaremos contigo pronto.");
         
         // Restaurar botón después de 4 segundos
         setTimeout(() => {
