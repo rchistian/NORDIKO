@@ -1591,9 +1591,24 @@ h1, h2, h3, h4, h5 {
         padding: 1rem 0.5rem;
         gap: 1.5rem;
     }
+    .tab-info {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     .tab-info h3 {
         font-size: 1.35rem;
-        word-wrap: break-word;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        width: 100%;
+    }
+    .tab-info p {
+        width: 100%;
+        word-break: break-word;
+        overflow-wrap: break-word;
     }
     .tab-visual-box {
         width: 100%;
@@ -1601,11 +1616,23 @@ h1, h2, h3, h4, h5 {
         margin: 0 auto;
         height: 220px;
     }
+    .check-list {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 320px;
+    }
     .check-list li {
         font-size: 0.9rem;
         align-items: flex-start;
+        word-break: break-word;
+        overflow-wrap: break-word;
     }
     .check-list li::before {
         margin-top: 2px;
     }
 }
+
