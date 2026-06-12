@@ -1584,4 +1584,28 @@ h1, h2, h3, h4, h5 {
         max-width: 320px;
         margin: 0 auto;
     }
+    .services-tabs {
+        padding: 0.5rem;
+    }
+    .tab-grid {
+        padding: 1rem 0.5rem;
+        gap: 1.5rem;
+    }
+    .tab-info h3 {
+        font-size: 1.35rem;
+        word-wrap: break-word;
+    }
+    .tab-visual-box {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        height: 220px;
+    }
+    .check-list li {
+        font-size: 0.9rem;
+        align-items: flex-start;
+    }
+    .check-list li::before {
+        margin-top: 2px;
+    }
 }
